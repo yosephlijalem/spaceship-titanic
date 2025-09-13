@@ -1,54 +1,28 @@
-\# Spaceship Titanic — Kaggle
+# 🚀 Spaceship Titanic (Kaggle)
 
+Predict which passengers were **Transported** after a spacetime anomaly.  
+This repo contains a clean, reproducible workflow (CV → features → models → ensembling) and ready-to-submit files.
 
+**Public Leaderboard (rolling):** **0.80944** — top ~3% (≈ #48 / 1544)  
+**Best run:** Seed-averaged CatBoost + LightGBM, blended (α=0.60)
 
-Binary classification to predict `Transported` for each passenger.
+---
 
+📈 Results (Public LB)
+Approach	Score
+CatBoost baseline (hold-out, best_iter≈299)	0.79939
+5-fold CV (n≈145)	0.80453
+CV + Group features	0.80336
+CV + Age bins + LogTotalSpend + AnySpend + Groups	0.80523
+Blend: CatBoost + LightGBM (50/50)	0.80734
+Seed-averaged (3 seeds) 50/50 blend	0.80921
+Seed-averaged blend (α=0.60)	0.80944
 
+Note: Spaceship Titanic uses a rolling public leaderboard; large “outlier” scores often don’t generalize.
+This repo emphasizes valid CV and leak-free features.
 
-\## Current Results (Public LB)
+🙌 Acknowledgments
 
-\- CatBoost baseline (hold-out, best\_iter≈299): \*\*0.79939\*\*
+Competition: Kaggle – Spaceship Titanic
 
-\- 5-fold CV (n=145): \*\*0.80453\*\*
-
-\- CV + Group features (n=201): \*\*0.80336\*\*
-
-\- CV + Bins (AgeBin, LogTotalSpend, AnySpend) + Groups (n=340): \*\*0.80523\*\*  ← best so far
-
-
-
-\## Cross-Validation
-
-\- 5-fold Stratified CV, CatBoost handles categoricals natively.
-
-\- Latest CV mean: ~0.818 (std ~0.007).
-
-
-
-\## Approach (so far)
-
-\- Parse `Cabin` → `CabinDeck`, `CabinNum`, `CabinSide`
-
-\- Spending features: `TotalSpend`, `LogTotalSpend`, `AnySpend` from RoomService/FoodCourt/ShoppingMall/Spa/VRDeck
-
-\- Group features from `PassengerId` prefix: `GroupID`, `GroupSize`, `IsAlone`
-
-\- CatBoostClassifier with early stopping; refit on full data using CV-based `n\_estimators`
-
-
-
-\## Reproduce
-
-```bash
-
-conda create -n stitanic python=3.11 -y
-
-conda activate stitanic
-
-pip install pandas numpy scikit-learn catboost lightgbm xgboost matplotlib jupyter ipykernel kaggle
-
-jupyter notebook
-
-
-
+Photos: Joel Filipe, Richard Gatley, ActionVance (Unsplash)
