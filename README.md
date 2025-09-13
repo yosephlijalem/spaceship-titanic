@@ -1,7 +1,6 @@
 # 🚀 Spaceship Titanic (Kaggle)
 
 Predict which passengers were **Transported** after a spacetime anomaly.  
-This repo contains a clean, reproducible workflow (CV → features → models → ensembling) and ready-to-submit files.
 
 
 
