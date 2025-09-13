@@ -9,16 +9,7 @@ Predict which passengers were **Transported** after a spacetime anomaly.
 
 ---
 
-📈 Results (Public LB)
 
-Approach	Score
-CatBoost baseline (hold-out, best_iter≈299)	0.79939
-5-fold CV (n≈145)	0.80453
-CV + Group features	0.80336
-CV + Age bins + LogTotalSpend + AnySpend + Groups	0.80523
-Blend: CatBoost + LightGBM (50/50)	0.80734
-Seed-averaged (3 seeds) 50/50 blend	0.80921
-Seed-averaged blend (α=0.60)	0.80944
 
 
 🙌 Acknowledgments
