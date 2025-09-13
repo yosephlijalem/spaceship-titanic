@@ -1,0 +1,24 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# CatBoost logs
+catboost_info/
+
+# Kaggle secrets (never commit)
+.kaggle/
+kaggle.json
+
+# Data files (keep repo light)
+train.csv
+test.csv
+sample_submission.csv
+spaceship-titanic.zip
+submission_*.csv
+
+# OS cruft
+Thumbs.db
+.DS_Store
